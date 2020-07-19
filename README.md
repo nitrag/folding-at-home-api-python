@@ -1,6 +1,6 @@
-# folding-at-home-api-python
-Console application (python) to which wraps Folding@Home API for Pause/Restart/Power commands
-
+# Folding@Home Client API
+This package allows you to manage a Folding@Home client via mocking the same API
+calls your browser makes when using the FAHViewer local web portal.
 ## Install
 
 ```env
@@ -23,5 +23,5 @@ python3 setup.py install
 
 ```
 
-folding-at-home --host 192.168.1.176 --pause --http
+folding-at-home --host 192.168.1.176 --http --pause 
 ```
