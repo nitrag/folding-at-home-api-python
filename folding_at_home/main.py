@@ -14,10 +14,11 @@ class FAHClientAPI:
     def __init__(self, host, port, http = False):
         if not host:
             raise Exception('You must provide a Host/IP to connect to.')
-        if http:
-            self._proto = 'http'
         self._host = host
         self._port = port
+        if http:
+            self._proto = 'http'
+            self._port = 80 if port == 443 else port
         self._sid = self._get_session()
 
     def _get_session(self) -> str:
@@ -55,7 +56,7 @@ class FAHClientAPI:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--host', help='Hostname or IP Address', type=str)
-    parser.add_argument('--port', help='TCP Port', type=int, default=80)
+    parser.add_argument('--port', help='TCP Port', type=int, default=443)
     parser.add_argument('--http', help='Use HTTP instead of HTTPS', action='store_true')
     parser.add_argument('--resume', help='Resume Folding', action='store_true')
     parser.add_argument('--pause', help='Pause Folding', action='store_true')
