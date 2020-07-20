@@ -37,10 +37,10 @@ class FAHClientAPI:
         else:
             raise Exception('Error pausing/resuming')
 
-    def resume(self):
+    def resume(self) -> bool:
         self.pause(False)
 
-    def set_power(self, power_level: str):
+    def set_power(self, power_level: str) -> bool:
         url = f'{self._proto}://{self._host}:{self._port}/api/set?' \
               f'power={power_level}' \
               f'&sid={self._sid}&_={time.time() * 1000}'
