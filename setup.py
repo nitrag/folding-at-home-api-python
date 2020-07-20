@@ -18,6 +18,7 @@ setup(
     author='Ryan Gartin',
     author_email='ryan@eagledevelopers.net',
     license='MIT',
+    packages=["folding_at_home"],
     install_requires=[
       'argparse',
       'requests'
