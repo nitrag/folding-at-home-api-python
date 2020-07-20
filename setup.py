@@ -9,7 +9,7 @@ README = (HERE / 'README.md').read_text()
 
 setup(
     name='folding_at_home',
-    version='1.4.0',
+    version='1.5.0',
     description='API and console tool which wraps Folding@Home Client API for Pause/Restart/Power commands',
     long_description=README,
     long_description_content_type='text/markdown',

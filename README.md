@@ -1,14 +1,13 @@
+![pypi](https://img.shields.io/pypi/v/folding-at-home) ![versions](https://img.shields.io/badge/python-3.6%2B-green)
+
 # Folding@Home Client API
 This package allows you to manage a Folding@Home client via mocking the same API
 calls your browser makes when using the FAHViewer local web portal.
+
 ## Install
 
-```env
-# deactivate any virtual environments (venv, conda)
-cd /tmp
-git clone https://github.com/nitrag/folding-at-home-api-python.git
-cd folding-at-home-api-python
-python3 setup.py install
+```
+pip3 install folding-at-home
 ```
 
 ## Usage
