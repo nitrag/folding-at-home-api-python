@@ -16,12 +16,31 @@ python3 setup.py install
 | Arguments 	| Description                                   	|
 |-----------	|-----------------------------------------------	|
 | --host    	| Hostname or IP Address                        	| 
-| --http    	| Default is to use HTTPS, use HTTP instead     	| 
+| --https    	| Default is to use HTTP, use HTTPS instead     	| 
 | --port    	| If you want to override the default port (80) 	| 
 | --pause   	| Pauses FAH                                    	| 
 | --resume  	| Resume's FAH                                  	| 
 
+### CLI Examples
+
+Pause
+```
+folding-at-home --host 192.168.1.176 --pause 
+```
+Resume
+```
+folding-at-home --host 192.168.1.176 --resume 
+```
+Full Power
+```
+folding-at-home --host 192.168.1.176 --power FULL 
 ```
 
-folding-at-home --host 192.168.1.176 --http --pause 
+### Python examples
+
+```.py
+from folding_at_home.api import FAHClientAPI
+folding = FAHClientAPI(host=host)
+folding.resume()
+folding.set_power(power_level='LIGHT')
 ```

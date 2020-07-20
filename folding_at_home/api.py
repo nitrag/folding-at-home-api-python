@@ -4,19 +4,19 @@ from random import random
 
 
 class FAHClientAPI:
-    _proto = 'https'
+    _proto = 'http'
     _host = None
     _port = None
     _sid = None
 
-    def __init__(self, host, port, http=False):
+    def __init__(self, host: str, port: int = 80, https=False):
         if not host:
             raise Exception('You must provide a Host/IP to connect to.')
         self._host = host
         self._port = port
-        if http:
-            self._proto = 'http'
-            self._port = 80 if port == 443 else port
+        if https:
+            self._proto = 'https'
+            self._port = 443 if port == 80 else port
         self._sid = self._get_session()
 
     def _get_session(self) -> str:
@@ -38,7 +38,7 @@ class FAHClientAPI:
             raise Exception('Error pausing/resuming')
 
     def resume(self) -> bool:
-        self.pause(False)
+        return self.pause(False)
 
     def set_power(self, power_level: str) -> bool:
         url = f'{self._proto}://{self._host}:{self._port}/api/set?' \

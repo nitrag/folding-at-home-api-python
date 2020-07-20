@@ -6,15 +6,15 @@ from folding_at_home.api import FAHClientAPI
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--host', help='Hostname or IP Address', type=str)
-    parser.add_argument('--port', help='TCP Port', type=int, default=443)
-    parser.add_argument('--http', help='Use HTTP instead of HTTPS', action='store_true')
+    parser.add_argument('--port', help='TCP Port', type=int, default=80)
+    parser.add_argument('--https', help='Use HTTPS', action='store_true')
     parser.add_argument('--resume', help='Resume Folding', action='store_true')
     parser.add_argument('--pause', help='Pause Folding', action='store_true')
     parser.add_argument('--power', help='Set power level (LIGHT, MEDIUM, FULL)', type=str, default=None)
     args = parser.parse_args()
 
     try:
-        client = FAHClientAPI(host=args.host, port=args.port, http=args.http)
+        client = FAHClientAPI(host=args.host, port=args.port, https=args.https)
         if args.pause:
             client.pause()
             print('Folding Paused')
